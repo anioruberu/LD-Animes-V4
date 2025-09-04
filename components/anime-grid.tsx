@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Star, Play, ChevronRight, Eye, Flag, ChevronLeft, Shuffle } from "lucide-react"
+import { Star, Play, ChevronRight, Eye, Flag, ChevronLeft, Shuffle, Filter } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -219,10 +219,21 @@ export function AnimeGrid({
         </div>
       )}
 
-      {searchQuery.trim() && animes.length === 0 ? (
+      {animes.length === 0 ? (
         <div className="text-center py-12">
-          <h3 className="text-xl font-semibold mb-2">No hay resultados para "{searchQuery}"</h3>
-          <p className="text-muted-foreground">Intenta con otro término de búsqueda o revisa la ortografía.</p>
+          {searchQuery.trim() ? (
+            <>
+              <h3 className="text-xl font-semibold mb-2">No hay resultados para "{searchQuery}"</h3>
+              <p className="text-muted-foreground">Intenta con otro término de búsqueda o revisa la ortografía.</p>
+            </>
+          ) : selectedGenre !== "all" || selectedStatus !== "all" || selectedType !== "all" ? (
+            <>
+              <Filter className="h-12 w-12 mx-auto mb-3 opacity-50" />
+              <h3 className="text-xl font-semibold mb-2">No se encontraron animes</h3>
+              <p className="text-muted-foreground">No hay animes que coincidan con los filtros seleccionados.</p>
+              <p className="text-muted-foreground mt-1">Intenta cambiar o quitar algunos filtros.</p>
+            </>
+          ) : null}
         </div>
       ) : (
         <>

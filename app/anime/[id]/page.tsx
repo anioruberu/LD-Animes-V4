@@ -607,7 +607,9 @@ export default function AnimePage({ params }: { params: { id: string } }) {
                               ? "destructive"
                               : anime.status === "En Pause"
                                 ? "warning"
-                                : "secondary"
+                                : anime.status === "Próximamente" // Agregado estado "Próximamente" con color amarillo
+                                  ? "yellow"
+                                  : "secondary"
                         }
                       >
                         {anime.status}
