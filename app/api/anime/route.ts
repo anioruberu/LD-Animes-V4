@@ -54,7 +54,6 @@ export async function GET(request: Request) {
         "en-emision": "En Emisión",
         finalizado: "Finalizado",
         proximamente: "Próximamente",
-        "en-pause": "En Pause",
       }
       queryBuilder = queryBuilder.eq("status", statusMap[status] || status)
     }

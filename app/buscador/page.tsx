@@ -58,7 +58,7 @@ export default function BuscadorPage() {
     { display: "Vampiros", value: "Vampiros" },
   ]
 
-  const statuses = ["En Emisión", "Finalizado", "En Pause", "Próximamente"] // Agregado estado "Próximamente"
+  const statuses = ["En Emisión", "Finalizado", "En Pause"] // Cambié "Próximamente" por "En Pause"
 
   const types = ["TV", "OVA", "ONA", "Película", "Especial"]
 
